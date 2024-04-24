@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        form {
+            margin:30px
+
+        }
+        h3 {
+            margin:30px
+        } 
+        
+        table.data {
+            border-collapse: collapse;
+            width: 100%;
+            margin-left:30px
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Semantic Search Engine for Subtitles</h3>
+   
+    <form actions = '/' method = 'POST' autocomplete="off">
+        
+        <textarea name="input_sentence" rows="4" cols="40"></textarea></br>
+        <button class="btn btn-primary pull-left" id="right-panel-link" href="#left-panel">Find subtitle file</button>
+    </form></br>
+
+    <h3>Subtitles</h3>
+    <table class="data">
+        <thead>
+            <tr>
+                {% for table in tables %}
+                {{ table|safe }}
+                {% endfor %}
+            </tr>
+        </thead>
+        
+    </table>
+
+    <script>
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+    
+</body>
+</html>
